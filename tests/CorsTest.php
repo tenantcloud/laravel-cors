@@ -84,7 +84,7 @@ class CorsTest extends TestCase
 	{
 		config()->set('cors.profiles.default.allow_origins', [
 			'https://*.tenantcloud.com',
-			'https://*.suka',
+			'https://*.nz',
 		]);
 
 		$this
