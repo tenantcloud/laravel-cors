@@ -30,7 +30,7 @@ return [
 			 * Value of 'Access-Control-Allow-Origin' header.
 			 */
 			'allow_origins' => [
-				// '*',
+				'*',
 			],
 
 			/**
