@@ -95,7 +95,7 @@ abstract class AbstractCorsProfile
 	{
 		$this->addCommonHeaders($response);
 
-		$response->headers->set('Access-Control-Expose-Headers', $this->toString($this->exposeHeaders()));
+		$response->headers->set('Access-Control-Expose-Headers', $this->headerItemsToString($this->exposeHeaders()));
 	}
 
 	/**
@@ -107,8 +107,8 @@ abstract class AbstractCorsProfile
 	{
 		$this->addCommonHeaders($response);
 
-		$response->headers->set('Access-Control-Allow-Methods', $this->toString($this->allowMethods()));
-		$response->headers->set('Access-Control-Allow-Headers', $this->toString($this->allowHeaders()));
+		$response->headers->set('Access-Control-Allow-Methods', $this->headerItemsToString($this->allowMethods()));
+		$response->headers->set('Access-Control-Allow-Headers', $this->headerItemsToString($this->allowHeaders()));
 		$response->headers->set('Access-Control-Max-Age', $this->maxAge());
 	}
 
@@ -124,10 +124,15 @@ abstract class AbstractCorsProfile
 			$response->headers->set('Access-Control-Allow-Credentials', 'true');
 		}
 
-		$response->headers->set('Access-Control-Allow-Origin', $this->allowedOriginsToString());
+		$response->headers->set('Access-Control-Allow-Origin', $this->allowedOriginsAsString());
 	}
 
-	protected function allowedOriginsToString(): string
+	/**
+	 * Returns all allowed origins for this request as a string (for the header).
+	 *
+	 * @return string
+	 */
+	protected function allowedOriginsAsString(): string
 	{
 		if (!$this->isAllowed()) {
 			return '';
@@ -140,7 +145,14 @@ abstract class AbstractCorsProfile
 		return $this->request->header('Origin');
 	}
 
-	protected function toString(array $array): string
+	/**
+	 * Transforms an array of header enumerated values as a string.
+	 *
+	 * @param array $array
+	 *
+	 * @return string
+	 */
+	protected function headerItemsToString(array $array): string
 	{
 		return implode(', ', $array);
 	}
