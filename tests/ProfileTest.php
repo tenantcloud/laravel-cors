@@ -2,9 +2,9 @@
 
 namespace TenantCloud\Cors\Tests;
 
-use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Testing\TestResponse;
 use TenantCloud\Cors\CorsMiddleware;
 use TenantCloud\Cors\Tests\Stubs\TestCorsProfileStub;
 
