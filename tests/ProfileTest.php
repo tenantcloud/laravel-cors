@@ -2,6 +2,7 @@
 
 namespace TenantCloud\Cors\Tests;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Testing\TestResponse;
@@ -41,6 +42,24 @@ class ProfileTest extends TestCase
 		$this
 			->sendRequest('POST', 'https://nesto.com')
 			->assertStatus(Response::HTTP_OK);
+	}
+
+    public function testItWillOnlyUseLastAppliedMiddleware(): void
+    {
+        config(['cors.profiles.global' => []]);
+        config(['cors.profiles.group' => []]);
+
+        $this->app->make(Kernel::class)->prependMiddleware(CorsMiddleware::class . ':global');
+
+        Route::middleware(CorsMiddleware::class . ':group')
+            ->group(static function () {
+                Route::post('test', static function () {})
+                    ->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
+            });
+
+        $this
+            ->sendRequest('POST', 'https://nesto.com')
+            ->assertStatus(Response::HTTP_OK);
 	}
 
 	public function sendRequest(string $method, string $origin, string $uri = 'test'): TestResponse
