@@ -7,9 +7,7 @@ namespace TenantCloud\Cors\Profile;
  */
 class ConfigCorsProfile extends AbstractCorsProfile
 {
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	protected $profile;
 
 	public function __construct(string $profile)
@@ -67,13 +65,9 @@ class ConfigCorsProfile extends AbstractCorsProfile
 
 	/**
 	 * Returns config key for this profile.
-	 *
-	 * @param string $path
-	 *
-	 * @return string
 	 */
 	protected function configKey(string $path): string
 	{
-		return "cors.profiles.$this->profile.$path";
+		return "cors.profiles.{$this->profile}.{$path}";
 	}
 }

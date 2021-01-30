@@ -26,14 +26,14 @@ return [
 			 */
 			'allow_credentials' => false,
 
-			/**
+			/*
 			 * Value of 'Access-Control-Allow-Origin' header.
 			 */
 			'allow_origins' => [
 				'*',
 			],
 
-			/**
+			/*
 			 * Value of 'Access-Control-Allow-Methods' header.
 			 */
 			'allow_methods' => [
@@ -45,7 +45,7 @@ return [
 				'DELETE',
 			],
 
-			/**
+			/*
 			 * Value of 'Access-Control-Allow-Headers' header.
 			 */
 			'allow_headers' => [
@@ -55,7 +55,7 @@ return [
 				'Authorization',
 			],
 
-			/**
+			/*
 			 * Value of 'Access-Control-Expose-Headers' header.
 			 */
 			'expose_headers' => [
@@ -71,6 +71,6 @@ return [
 			 * Value of 'Access-Control-Max-Age' header.
 			 */
 			'max_age' => 60 * 60 * 24,
-		]
+		],
 	],
 ];

@@ -13,7 +13,8 @@ class ProfileTest extends TestCase
 {
 	public function testItWillThrowAnExceptionWhenANonExistentProfileIsGiven(): void
 	{
-		Route::post('test', function () {})->middleware(CorsMiddleware::class . ':nesto');
+		Route::post('test', function () {
+		})->middleware(CorsMiddleware::class . ':nesto');
 
 		$this
 			->sendRequest('POST', 'https://tenantcloud.com')
@@ -24,7 +25,8 @@ class ProfileTest extends TestCase
 	{
 		config(['cors.profiles.nesto' => []]);
 
-		Route::post('test', function () {})->middleware(CorsMiddleware::class . ':nesto');
+		Route::post('test', function () {
+		})->middleware(CorsMiddleware::class . ':nesto');
 
 		$this
 			->sendRequest('POST', 'https://tenantcloud.com')
@@ -33,7 +35,8 @@ class ProfileTest extends TestCase
 
 	public function testItWillUseConfigValuesIfProfileClassIsGiven(): void
 	{
-		Route::post('test', function () {})->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
+		Route::post('test', function () {
+		})->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
 
 		$this
 			->sendRequest('POST', 'https://tenantcloud.com')
@@ -44,22 +47,23 @@ class ProfileTest extends TestCase
 			->assertStatus(Response::HTTP_OK);
 	}
 
-    public function testItWillOnlyUseLastAppliedMiddleware(): void
-    {
-        config(['cors.profiles.global' => []]);
-        config(['cors.profiles.group' => []]);
+	public function testItWillOnlyUseLastAppliedMiddleware(): void
+	{
+		config(['cors.profiles.global' => []]);
+		config(['cors.profiles.group' => []]);
 
-        $this->app->make(Kernel::class)->prependMiddleware(CorsMiddleware::class . ':global');
+		$this->app->make(Kernel::class)->prependMiddleware(CorsMiddleware::class . ':global');
 
-        Route::middleware(CorsMiddleware::class . ':group')
-            ->group(static function () {
-                Route::post('test', static function () {})
-                    ->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
-            });
+		Route::middleware(CorsMiddleware::class . ':group')
+			->group(static function () {
+				Route::post('test', static function () {
+				})
+					->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
+			});
 
-        $this
-            ->sendRequest('POST', 'https://nesto.com')
-            ->assertStatus(Response::HTTP_OK);
+		$this
+			->sendRequest('POST', 'https://nesto.com')
+			->assertStatus(Response::HTTP_OK);
 	}
 
 	public function sendRequest(string $method, string $origin, string $uri = 'test'): TestResponse

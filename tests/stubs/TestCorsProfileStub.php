@@ -8,8 +8,6 @@ class TestCorsProfileStub extends AbstractCorsProfile
 {
 	/**
 	 * Value of 'Access-Control-Allow-Credentials' header.
-	 *
-	 * @return bool
 	 */
 	public function allowCredentials(): bool
 	{
@@ -18,8 +16,6 @@ class TestCorsProfileStub extends AbstractCorsProfile
 
 	/**
 	 * Value of 'Access-Control-Allow-Origin' header.
-	 *
-	 * @return array
 	 */
 	public function allowOrigins(): array
 	{
@@ -28,8 +24,6 @@ class TestCorsProfileStub extends AbstractCorsProfile
 
 	/**
 	 * Value of 'Access-Control-Allow-Methods' header.
-	 *
-	 * @return array
 	 */
 	public function allowMethods(): array
 	{
@@ -38,8 +32,6 @@ class TestCorsProfileStub extends AbstractCorsProfile
 
 	/**
 	 * Value of 'Access-Control-Allow-Headers' header.
-	 *
-	 * @return array
 	 */
 	public function allowHeaders(): array
 	{
@@ -48,8 +40,6 @@ class TestCorsProfileStub extends AbstractCorsProfile
 
 	/**
 	 * Value of 'Access-Control-Expose-Headers' header.
-	 *
-	 * @return array
 	 */
 	public function exposeHeaders(): array
 	{
@@ -58,8 +48,6 @@ class TestCorsProfileStub extends AbstractCorsProfile
 
 	/**
 	 * Value of 'Access-Control-Max-Age' header.
-	 *
-	 * @return int
 	 */
 	public function maxAge(): int
 	{

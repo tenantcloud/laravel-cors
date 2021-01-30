@@ -74,7 +74,7 @@ class PreflightTest extends TestCase
 	{
 		$headers = [
 			'Access-Control-Request-Method' => $method,
-			'Origin' => $origin,
+			'Origin'                        => $origin,
 		];
 
 		$server = $this->transformHeadersToServerVars($headers);
