@@ -9,7 +9,7 @@ jobs:
     name: Tests on PHP ${{ matrix.php }} with TestBench ${{ matrix.test-bench }}
 
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: true
       matrix:
@@ -24,7 +24,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip
           tools: composer:v2
           coverage: none
 
@@ -44,7 +43,7 @@ jobs:
         run: |
           composer require "orchestra/testbench=${{ matrix.test-bench }}" --dev --no-update
           composer install --dev --prefer-dist --no-progress --no-suggest
-      
+
       - name: Execute tests
         run: vendor/bin/pest --colors=always
 
