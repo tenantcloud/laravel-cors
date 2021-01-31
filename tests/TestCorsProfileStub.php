@@ -1,6 +1,6 @@
 <?php
 
-namespace TenantCloud\Cors\Tests\Stubs;
+namespace TenantCloud\Cors\Tests;
 
 use TenantCloud\Cors\Profile\AbstractCorsProfile;
 

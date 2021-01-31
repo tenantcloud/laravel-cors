@@ -44,9 +44,6 @@ jobs:
           composer require "orchestra/testbench=${{ matrix.test-bench }}" --dev --no-update
           composer install --prefer-dist --no-progress
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-
       - name: Execute tests
         run: vendor/bin/pest --colors=always
 
