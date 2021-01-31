@@ -61,7 +61,6 @@ class ProfileTest extends TestCase
 			});
 
 		$this
-			->withoutExceptionHandling()
 			->sendRequest('POST', 'https://nesto.com')
 			->assertStatus(Response::HTTP_OK);
 	}
