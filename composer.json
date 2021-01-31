@@ -1,48 +1,43 @@
 {
-    "name": "tenantcloud/laravel-cors",
-    "description": "Send CORS headers in a Laravel application",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Freek Van der Herten",
-            "email": "freek@spatie.be",
-            "homepage": "https://spatie.be",
-            "role": "Developer"
-        },
+	"name": "tenantcloud/laravel-cors",
+	"description": "Send CORS headers in a Laravel application",
+	"license": "MIT",
+	"authors": [
 		{
-			"name": "TenantCloud",
-			"role": "Developer"
+			"name": "Oleksandr Prypkhan",
+			"email": "autaut03@gmail.com"
 		}
-    ],
-    "require": {
-        "php": "^7.4",
-        "illuminate/support": "^7.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^5.0",
-        "phpunit/phpunit": "^9.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "TenantCloud\\Cors\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "TenantCloud\\Cors\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "TenantCloud\\Cors\\CorsServiceProvider"
-            ]
-        }
-    }
+	],
+	"require": {
+		"php": ">=7.4",
+		"illuminate/support": "^7.0|^8.0"
+	},
+	"require-dev": {
+		"orchestra/testbench": "^5.0",
+		"pestphp/pest": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"TenantCloud\\Cors\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"TenantCloud\\Cors\\Tests\\": "tests/"
+		}
+	},
+	"scripts": {
+		"cs-fix": "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --show-progress=estimating",
+		"test": "vendor/bin/phpunit"
+	},
+	"config": {
+		"sort-packages": true
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"TenantCloud\\Cors\\CorsServiceProvider"
+			]
+		}
+	}
 }
