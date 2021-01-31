@@ -18,12 +18,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"TenantCloud\\Cors\\": "src"
+			"TenantCloud\\Cors\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"TenantCloud\\Cors\\Tests\\": "tests"
+			"TenantCloud\\Cors\\Tests\\": "tests/"
 		}
 	},
 	"scripts": {
