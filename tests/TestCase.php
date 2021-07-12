@@ -12,7 +12,7 @@ use TenantCloud\Cors\CorsServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
-	public function setUp(): void
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -45,8 +45,6 @@ class TestCase extends OrchestraTestCase
 
 	/**
 	 * @param Application $app
-	 *
-	 * @return array
 	 */
 	protected function getPackageProviders($app): array
 	{

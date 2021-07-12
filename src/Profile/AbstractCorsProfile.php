@@ -7,56 +7,40 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractCorsProfile
 {
-	/**
-	 * @var Request
-	 */
+	/** @var Request */
 	protected $request;
 
 	/**
 	 * Value of 'Access-Control-Allow-Credentials' header.
-	 *
-	 * @return bool
 	 */
 	abstract public function allowCredentials(): bool;
 
 	/**
 	 * Value of 'Access-Control-Allow-Origin' header.
-	 *
-	 * @return array
 	 */
 	abstract public function allowOrigins(): array;
 
 	/**
 	 * Value of 'Access-Control-Allow-Methods' header.
-	 *
-	 * @return array
 	 */
 	abstract public function allowMethods(): array;
 
 	/**
 	 * Value of 'Access-Control-Allow-Headers' header.
-	 *
-	 * @return array
 	 */
 	abstract public function allowHeaders(): array;
 
 	/**
 	 * Value of 'Access-Control-Expose-Headers' header.
-	 *
-	 * @return array
 	 */
 	abstract public function exposeHeaders(): array;
 
 	/**
 	 * Value of 'Access-Control-Max-Age' header.
-	 *
-	 * @return int
 	 */
 	abstract public function maxAge(): int;
 
 	/**
-	 * @param Request $request
-	 *
 	 * @return static
 	 */
 	public function setRequest(Request $request): self
@@ -68,8 +52,6 @@ abstract class AbstractCorsProfile
 
 	/**
 	 * Whether current request is allowed by CORS.
-	 *
-	 * @return bool
 	 */
 	public function isAllowed(): bool
 	{
@@ -88,8 +70,6 @@ abstract class AbstractCorsProfile
 
 	/**
 	 * Adds CORS headers to regular request response.
-	 *
-	 * @param Response $response
 	 */
 	public function addCorsHeaders(Response $response): void
 	{
@@ -100,8 +80,6 @@ abstract class AbstractCorsProfile
 
 	/**
 	 * Adds CORS headers to preflight request response.
-	 *
-	 * @param Response $response
 	 */
 	public function addPreflightHeaders(Response $response): void
 	{
@@ -114,8 +92,6 @@ abstract class AbstractCorsProfile
 
 	/**
 	 * Adds any common headers between the two.
-	 *
-	 * @param Response $response
 	 */
 	protected function addCommonHeaders(Response $response): void
 	{
@@ -129,8 +105,6 @@ abstract class AbstractCorsProfile
 
 	/**
 	 * Returns all allowed origins for this request as a string (for the header).
-	 *
-	 * @return string
 	 */
 	protected function allowedOriginsAsString(): string
 	{
@@ -147,10 +121,6 @@ abstract class AbstractCorsProfile
 
 	/**
 	 * Transforms an array of header enumerated values as a string.
-	 *
-	 * @param array $array
-	 *
-	 * @return string
 	 */
 	protected function headerItemsToString(array $array): string
 	{
