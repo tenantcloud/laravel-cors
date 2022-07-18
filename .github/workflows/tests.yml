@@ -59,7 +59,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.0
+          php-version: 8.1
           extensions: dom, curl, libxml, mbstring, zip
           tools: composer:v2
           coverage: none
@@ -77,4 +77,4 @@ jobs:
         run: composer install --dev --prefer-dist --no-progress --no-suggest --working-dir=tools/php-cs-fixer
 
       - name: Run php-cs-fixer
-        run: composer cs-fix -- --dry-run --diff --using-cache=no --diff-format udiff
+        run: composer cs-fix -- --dry-run --diff --using-cache=no

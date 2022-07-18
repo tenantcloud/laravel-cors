@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class CorsServiceProvider extends ServiceProvider
 {
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function boot(): void
 	{
@@ -19,7 +19,7 @@ class CorsServiceProvider extends ServiceProvider
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function register(): void
 	{

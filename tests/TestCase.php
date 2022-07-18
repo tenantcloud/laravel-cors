@@ -24,13 +24,9 @@ class TestCase extends OrchestraTestCase
 	 */
 	protected function setupRoutes(): void
 	{
-		Route::post('test-cors', static function () {
-			return 'real content';
-		});
+		Route::post('test-cors', static fn () => 'real content');
 
-		Route::post('test-cors-stream', static function () {
-			return new StreamedResponse();
-		});
+		Route::post('test-cors-stream', static fn () => new StreamedResponse());
 	}
 
 	/**

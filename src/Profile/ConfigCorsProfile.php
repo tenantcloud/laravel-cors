@@ -16,7 +16,7 @@ class ConfigCorsProfile extends AbstractCorsProfile
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function allowCredentials(): bool
 	{
@@ -24,7 +24,7 @@ class ConfigCorsProfile extends AbstractCorsProfile
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function allowOrigins(): array
 	{
@@ -32,7 +32,7 @@ class ConfigCorsProfile extends AbstractCorsProfile
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function allowMethods(): array
 	{
@@ -40,7 +40,7 @@ class ConfigCorsProfile extends AbstractCorsProfile
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function allowHeaders(): array
 	{
@@ -48,7 +48,7 @@ class ConfigCorsProfile extends AbstractCorsProfile
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function exposeHeaders(): array
 	{
@@ -56,7 +56,7 @@ class ConfigCorsProfile extends AbstractCorsProfile
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function maxAge(): int
 	{
