@@ -135,6 +135,10 @@ class CorsMiddleware
 			->gatherRouteMiddleware($route);
 
 		foreach (array_reverse($middleware) as $middleware) {
+			if (!is_string($middleware)) {
+				continue;
+			}
+
 			$middleware = explode(':', $middleware);
 
 			// Ignore all middleware that aren't this.

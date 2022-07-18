@@ -55,8 +55,7 @@ class ProfileTest extends TestCase
 
 		Route::middleware(CorsMiddleware::class . ':group')
 			->group(static function () {
-				Route::post('test', static function () {
-				})
+				Route::post('test', [ControllerStub::class, 'endpoint'])
 					->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
 			});
 

@@ -63,9 +63,7 @@ abstract class AbstractCorsProfile
 			return true;
 		}
 
-		return collect($this->allowOrigins())->contains(function ($allowedOrigin) {
-			return fnmatch($allowedOrigin, $this->request->header('Origin'));
-		});
+		return collect($this->allowOrigins())->contains(fn ($allowedOrigin) => fnmatch($allowedOrigin, $this->request->header('Origin')));
 	}
 
 	/**
