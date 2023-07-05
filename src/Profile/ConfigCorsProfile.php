@@ -15,49 +15,31 @@ class ConfigCorsProfile extends AbstractCorsProfile
 		$this->profile = $profile;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function allowCredentials(): bool
 	{
 		return config($this->configKey('allow_credentials')) ?? false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function allowOrigins(): array
 	{
 		return config($this->configKey('allow_origins')) ?? [];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function allowMethods(): array
 	{
 		return config($this->configKey('allow_methods')) ?? [];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function allowHeaders(): array
 	{
 		return config($this->configKey('allow_headers')) ?? [];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function exposeHeaders(): array
 	{
 		return config($this->configKey('expose_headers')) ?? [];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function maxAge(): int
 	{
 		return config($this->configKey('max_age')) ?? 0;
