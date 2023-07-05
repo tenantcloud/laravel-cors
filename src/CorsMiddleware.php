@@ -27,10 +27,8 @@ class CorsMiddleware
 	 * Handle an incoming request.
 	 *
 	 * @param Request $request
-	 *
-	 * @return mixed
 	 */
-	public function handle($request, Closure $next, ?string $profile = null)
+	public function handle($request, Closure $next, string $profile = null)
 	{
 		if (!$this->isCorsRequest($request) || !$this->isLastApplied($request, $profile)) {
 			return $next($request);
@@ -85,7 +83,7 @@ class CorsMiddleware
 	/**
 	 * Resolves an instance of AbstractCorsProfile based on passed string to the middleware.
 	 */
-	protected function resolveProfile(?string $profile = null): AbstractCorsProfile
+	protected function resolveProfile(string $profile = null): AbstractCorsProfile
 	{
 		if ($profile === null) {
 			$profile = 'default';
@@ -104,8 +102,6 @@ class CorsMiddleware
 
 	/**
 	 * You can return a response from here instead if needed.
-	 *
-	 * @return mixed
 	 */
 	protected function forbidden()
 	{
@@ -120,7 +116,7 @@ class CorsMiddleware
 	 *
 	 * @param Request $request
 	 */
-	private function isLastApplied($request, ?string $profile = null): bool
+	private function isLastApplied($request, string $profile = null): bool
 	{
 		$route = $this->router
 			->getRoutes()

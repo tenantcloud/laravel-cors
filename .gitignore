@@ -8,10 +8,15 @@
 
 # Build/coverage
 /build
+/coverage
 
 # Cache
 .php-cs-fixer.cache
+.phpunit.cache
 **/.phpunit.result.cache
+
+# Temporary
+tmp/
 
 # Misc
 .DS_Store

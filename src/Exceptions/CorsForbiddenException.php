@@ -4,6 +4,7 @@ namespace TenantCloud\Cors\Exceptions;
 
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Throwable;
 
 /**
  * CORS version of Forbidden HTTP exception.

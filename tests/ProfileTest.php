@@ -12,8 +12,7 @@ class ProfileTest extends TestCase
 {
 	public function testItWillThrowAnExceptionWhenANonExistentProfileIsGiven(): void
 	{
-		Route::post('test', function () {
-		})->middleware(CorsMiddleware::class . ':nesto');
+		Route::post('test', function () {})->middleware(CorsMiddleware::class . ':nesto');
 
 		$this
 			->sendRequest('POST', 'https://tenantcloud.com')
@@ -24,8 +23,7 @@ class ProfileTest extends TestCase
 	{
 		config(['cors.profiles.nesto' => []]);
 
-		Route::post('test', function () {
-		})->middleware(CorsMiddleware::class . ':nesto');
+		Route::post('test', function () {})->middleware(CorsMiddleware::class . ':nesto');
 
 		$this
 			->sendRequest('POST', 'https://tenantcloud.com')
@@ -34,8 +32,7 @@ class ProfileTest extends TestCase
 
 	public function testItWillUseConfigValuesIfProfileClassIsGiven(): void
 	{
-		Route::post('test', function () {
-		})->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
+		Route::post('test', function () {})->middleware(CorsMiddleware::class . ':' . TestCorsProfileStub::class);
 
 		$this
 			->sendRequest('POST', 'https://tenantcloud.com')
