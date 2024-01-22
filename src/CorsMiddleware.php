@@ -122,6 +122,8 @@ class CorsMiddleware
 			->getRoutes()
 			->match($request);
 
+		$route->setContainer(app());
+
 		// If no route was matched, there can't be any more middleware other than the global ones.
 		if (!$route) {
 			return true;
