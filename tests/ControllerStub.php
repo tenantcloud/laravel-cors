@@ -11,7 +11,5 @@ class ControllerStub extends Controller
 		$this->middleware(fn ($request, $next) => $next($request));
 	}
 
-	public function endpoint(): void
-	{
-	}
+	public function endpoint(): void {}
 }
