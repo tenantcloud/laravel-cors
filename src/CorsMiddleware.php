@@ -16,19 +16,14 @@ use TenantCloud\Cors\Profile\ConfigCorsProfile;
  */
 class CorsMiddleware
 {
-	private Router $router;
-
-	public function __construct(Router $router)
-	{
-		$this->router = $router;
-	}
+	public function __construct(private Router $router) {}
 
 	/**
 	 * Handle an incoming request.
 	 *
 	 * @param Request $request
 	 */
-	public function handle($request, Closure $next, string $profile = null)
+	public function handle($request, Closure $next, ?string $profile = null)
 	{
 		if (!$this->isCorsRequest($request) || !$this->isLastApplied($request, $profile)) {
 			return $next($request);
@@ -83,7 +78,7 @@ class CorsMiddleware
 	/**
 	 * Resolves an instance of AbstractCorsProfile based on passed string to the middleware.
 	 */
-	protected function resolveProfile(string $profile = null): AbstractCorsProfile
+	protected function resolveProfile(?string $profile = null): AbstractCorsProfile
 	{
 		if ($profile === null) {
 			$profile = 'default';
@@ -116,7 +111,7 @@ class CorsMiddleware
 	 *
 	 * @param Request $request
 	 */
-	private function isLastApplied($request, string $profile = null): bool
+	private function isLastApplied($request, ?string $profile = null): bool
 	{
 		$route = $this->router
 			->getRoutes()

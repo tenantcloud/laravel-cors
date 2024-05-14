@@ -11,7 +11,7 @@ use Throwable;
  */
 class CorsForbiddenException extends HttpException
 {
-	public function __construct(Throwable $previous = null, array $headers = [], ?int $code = 0)
+	public function __construct(?Throwable $previous = null, array $headers = [], ?int $code = 0)
 	{
 		parent::__construct(Response::HTTP_FORBIDDEN, 'Forbidden (cors).', $previous, $headers, $code);
 	}
