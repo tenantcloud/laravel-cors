@@ -7,13 +7,9 @@ namespace TenantCloud\Cors\Profile;
  */
 class ConfigCorsProfile extends AbstractCorsProfile
 {
-	/** @var string */
-	protected $profile;
-
-	public function __construct(string $profile)
-	{
-		$this->profile = $profile;
-	}
+	public function __construct(/** @var string */
+		protected string $profile
+	) {}
 
 	public function allowCredentials(): bool
 	{
