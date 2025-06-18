@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/tenantcloud/laravel-cors/compare/v2.4.0...v2.4.1) (2025-06-18)
+
+
+### Bug Fixes
+
+* Laravel 11 support ([927556a](https://github.com/tenantcloud/laravel-cors/commit/927556af4d027c3520acf23a484a79fff60cb33f))
+
 # [2.4.0](https://github.com/tenantcloud/laravel-cors/compare/v2.3.1...v2.4.0) (2024-04-25)
 
 
